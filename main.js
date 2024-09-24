@@ -44,12 +44,14 @@ const animals = [
 ]
 
 //1. Function returns array animals
-const getAnimals = () => animals;
+// const lodashs = require('lodash');
+// const getAnimals = () => lodashs.cloneDeep(a);
+const getAnimals = () => JSON.parse(JSON.stringify(animals))
 console.log("getAnimals:", getAnimals());
-
 // let animalTest = getAnimals();
-// animalTest[0] = null;
+// animalTest[0].id = null;
 // console.log(animals)
+
 
 // 2. Function to filter animals by type and remove 'type' property
 const getAnimal = (type) => {
@@ -82,7 +84,7 @@ const getHelloName = async () => {
     //a) map
     //Go through the animals array to get the names
     const Promises = animals.map(animal => hello(animal.name));
-    //Use Promise.all to convert all completed promises and return the resulting array
+    // //Use Promise.all to convert all completed promises and return the resulting array
     const results = await Promise.all(Promises);
 
     // //b) forEach
